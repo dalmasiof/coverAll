@@ -1,6 +1,6 @@
 {
   "name": "cover-all",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "heroku-postbuild": "ng build — prod",
   "engines": {
     "node": "14.17.4",
