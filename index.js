@@ -10,11 +10,11 @@ app.use("/scripts", express.static(__dirname + '/scripts'));
   app.use('/',express.static('dist/coverALL'))
 
 // viewed at based directory http://localhost:8080/
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname + '/dist/coverALL/index.html'));
-// });
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/dist/coverALL/index.html'));
+});
 
-// // add other routes below
+// add other routes below
 // app.get('/about', function (req, res) {
 //   res.sendFile(path.join(__dirname + 'views/about.html'));
 // });
