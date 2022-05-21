@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     debugger;
-    let url = 'api/produto';
+    let url = 'https://coverall-api.herokuapp.com/produto';
     this.httpSvc.get(url).subscribe((x) => {
       console.log(x);
     });
   }
-
+  
 }
