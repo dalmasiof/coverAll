@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports = {
-    entry:'index.js',//no implemenation needed by default webpack verification
+    entry:'./index.js',//no implemenation needed by default webpack verification
     mode: 'development',   
     devServer: {
     historyApiFallback: true,// handle 404 cannot get error after refreshing url
