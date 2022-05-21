@@ -10,7 +10,7 @@ module.exports = {
         webSocketURL: 'ws://0.0.0.0:8080/ws',// handle Invalid header error  in heroku port 8080 maps in server.js
       },
       static: {
-        directory: path.join(__dirname, '/dist/<app-name>'),
+        directory: path.join(__dirname, '/dist/coverALL'),
       },
 
       proxy: {

@@ -1,8 +1,8 @@
 const express = require('express');
-const path = require('path');
-const app = express();
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const app = express();
 
+const path = require('path');
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 /** this is custom js to help proxy in server.js*/
