@@ -15,7 +15,7 @@ module.exports = {
 
       proxy: {
     /** Same as proxy.conf.json or proxy.conf.js */
-        '/api/*': {
+        'api/*': {
           target: 'https://coverall-api.herokuapp.com/',
           changeOrigin:true,
           secure:false,

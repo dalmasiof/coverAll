@@ -1,5 +1,5 @@
 {
-    "/api":{
+    "/apiDev":{
         "target":"https://coverall-api.herokuapp.com/",
         "secure":false,
         "timeout":60000,
@@ -9,7 +9,7 @@
         "changeOrigin":true,
 
         "pathRewrite":{
-            "^/api":""
+            "^/apiDev":""
         }
 
     }
