@@ -15,11 +15,7 @@ export class AppComponent implements OnInit {
   constructor(private httpSvc: HttpClient) {}
   
   ngOnInit(): void {
-    debugger;
-    let url = 'https://coverall-api.herokuapp.com/produto';
-    this.httpSvc.get(url).subscribe((x) => {
-      console.log(x);
-    });
+   
   }
   
 }

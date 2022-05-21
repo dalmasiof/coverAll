@@ -1,0 +1,44 @@
+.login--container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+    .--card{
+        width: 30%;
+        height: 100%;
+        margin: 2%;
+    }
+    .--logo{
+        padding-top: 20%;
+        display: flex;
+        margin: auto;
+        justify-content: space-around;
+     
+    
+
+    }
+    
+    .--inputs{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20%;
+        padding: 0% 20% 0% 20%;
+        // border: 1px solid black;
+    }
+    .--verificacao{
+        display: flex;
+        justify-content: space-around;  
+    }
+    
+    .--btnLogin{
+        display: flex;
+        justify-content: flex-end;        
+        margin-left: auto;
+    }
+
+
+}
+
+.btn__Login{
+    color: white; background-color: blueviolet;
+}

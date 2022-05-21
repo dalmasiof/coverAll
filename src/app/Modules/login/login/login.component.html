@@ -1,0 +1,30 @@
+<div class="login--container">
+  <mat-card class="--card">
+    <mat-card-content>
+      <div class="--logo">
+        <img src="assets/logoProt2.jpg" />
+      </div>
+      <div class="--inputs">
+        <mat-form-field>
+          <input matInput placeholder="Usuario" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Senha" />
+        </mat-form-field>
+        <span style="display: flex; flex-direction: row; align-items: baseline;">
+          <label>Esqueceu sua senha?</label>
+          <span style="margin-left: auto">
+            <button
+              mat-raised-button
+              class="btn__Login"
+              (click)="btnLoginCLick()"
+            >
+              Login
+            </button>
+          </span>
+        </span>
+      </div>
+      <div class="--btnLogin"></div>
+    </mat-card-content>
+  </mat-card>
+</div>
