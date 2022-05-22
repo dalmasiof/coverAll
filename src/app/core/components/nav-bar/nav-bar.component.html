@@ -1,12 +1,17 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Menu</span>
-    <span class="example-spacer"></span>
+  <button mat-icon-button >
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-button style="height: 100%;" routerLink="cliente/lista" >Clientes</button>
+  <button mat-button style="height: 100%;">Produtos</button>
+
+  
     <span style="margin-left: auto;">
-        <button mat-icon-button routerLink="login">
+        <button mat-icon-button routerLink="login" matTooltip="Login">
           <mat-icon>login</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="Perfil">
+          <mat-icon>account_circle</mat-icon>
         </button>
     </span>
   </mat-toolbar>

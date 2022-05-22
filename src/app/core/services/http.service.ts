@@ -26,7 +26,7 @@ export class HttpService<T> {
     return this.httpSvc.post<T[]>(this.baseUrl+path,objFilter);
   }
   Create(toCreate: T,path:string): Observable<T> {
-    return this.httpSvc.get<T>(this.baseUrl+path,toCreate);
+    return this.httpSvc.post<T>(this.baseUrl+path,toCreate);
   }
   Update(toUpdate: T,path:string): Observable<T> {
     return this.httpSvc.put<T>(this.baseUrl+path,toUpdate);

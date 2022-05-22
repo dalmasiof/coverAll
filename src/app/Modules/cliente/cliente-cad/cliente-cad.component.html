@@ -1,0 +1,161 @@
+<div class="container--title">
+  <span class="container__title">
+    <mat-icon>add_circle_outline</mat-icon>
+    <span class="__title">Cadastrar Cliente</span>
+  </span>
+  <h4>Cadastre um novo cliente.</h4>
+</div>
+<div class="container--title__subtitle">
+  <h2>Preencha os dados.</h2>
+</div>
+<div class="container--form">
+  <form [formGroup]="formCad">
+    <div class="container--form--2elementos">
+      <mat-form-field>
+        <input formControlName="nome" matInput placeholder="Nome" name="nome" />
+      </mat-form-field>
+      <span style="width: 50%"></span>
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Email"
+          name="email"
+          type="email"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="container--form--2elementos">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Sobrenome"
+          formControlName="sobrenome"
+          name="sobrenome"
+        />
+      </mat-form-field>
+      <span style="width: 50%"></span>
+
+      <mat-form-field>
+        <mat-select formControlName="genero" name="genero" placeholder="Gênero">
+          <mat-option value="M">Masculino</mat-option>
+          <mat-option value="F">Feminino</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="container--form--2elementos">
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Senha"
+          formControlName="senha"
+          name="senha"
+        />
+      </mat-form-field>
+      <span style="width: 50%"></span>
+
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          placeholder="Confirmar Senha"
+          formControlName="confirmaSenha"
+        />
+        <mat-error *ngIf="formCad.controls.confirmaSenha.hasError('equalTo')">
+          As Senhas não coincidem
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="container--form--2elementos--menor">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CPF"
+          formControlName="cpf"
+          name="cpf"
+          [textMask]="{ mask: MASKS.cpf.textMask }"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Data de Nascimento"
+          formControlName="dataNascimento"
+          name="dataNasc"
+          type="date"
+        />
+        
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Telefone"
+          formControlName="telefone"
+          name="telefone"
+          [textMask]="{ mask: MASKS.telefone.textMask }"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="container--form--2elementos--menor">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="UF"
+          formControlName="uf"
+          name="uf"
+          maxlength="2"
+          minlength="2"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Cidade"
+          formControlName="cidade"
+          name="cidade"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="CEP"
+          formControlName="cep"
+          name="cep"
+          [textMask]="{ mask: MASKS.cep.textMask }"
+        />
+      </mat-form-field>
+    </div>
+    <div class="container--form--1elemento">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Endereço"
+          formControlName="endereco"
+          name="endereco"
+        />
+      </mat-form-field>
+    </div>
+    <div class="container--form--1elemento">
+      <button
+        *ngIf="!formCad.invalid"
+        (click)="obBtnGravarClick()"
+        mat-raised-button
+        style="background-color: #27ae60; color: white"
+      >
+        <mat-icon>add</mat-icon> Gravar
+      </button>
+
+      <button *ngIf="formCad.invalid" disabled mat-raised-button>
+        <mat-icon>add</mat-icon> Gravar
+      </button>
+    </div>
+  </form>
+</div>

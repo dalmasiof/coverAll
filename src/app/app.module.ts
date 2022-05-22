@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './core/components/nav-bar/nav-bar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     
     
   ],
-  providers: [HttpClient],
+  providers: [HttpClient,{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

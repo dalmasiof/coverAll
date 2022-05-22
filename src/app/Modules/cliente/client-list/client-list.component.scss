@@ -1,0 +1,53 @@
+.container--title{
+    .container__title{
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
+        // justify-content: space-around   ;
+        .__title{
+            font-size: x-large;
+        }
+
+    }
+    h4{
+        color: #7f8c8d;
+    }
+
+}
+
+.container--btnAdd{
+    .__btnAdd{
+        background-color: #27ae60;
+        color: white;
+    }
+
+}
+.container--table{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+table{
+    width: 100%;
+    th{
+        text-align: start;
+        color: black;
+        size: bold;
+    }
+
+    td{
+        text-align: start;
+    }
+}
+
+.btnInfo{
+    color: #3498db;
+}
+
+.btnEdit{
+    color: #f39c12;
+}
+
+.btnRemove{
+    color: #e74c3c;
+}   
