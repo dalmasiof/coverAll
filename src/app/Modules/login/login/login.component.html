@@ -4,25 +4,29 @@
       <div class="--logo">
         <img src="assets/logoProt2.jpg" />
       </div>
-        <form [formGroup]="loginFormGroup" class="--inputs">
-          <mat-form-field>
-            <input formControlName="usuario" matInput placeholder="Usuario" />
-          </mat-form-field>
-          <mat-form-field>
-            <input formControlName="senha" matInput placeholder="Senha" />
-          </mat-form-field>
+      <form [formGroup]="loginFormGroup" class="--inputs">
+        <mat-form-field>
+          <input formControlName="usuario" matInput placeholder="Usuario" />
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" formControlName="senha" matInput placeholder="Senha" />
+        </mat-form-field>
 
-          <span style="display: flex; flex-direction: row; align-items: baseline;">
-            <label>Esqueceu sua senha?</label>
-            <span style="margin-left: auto">
-              <button *ngIf="!loginFormGroup.invalid"
+        <span style="display: flex; flex-direction: row; align-items: flex-end">
+          <small style="position: fixed;">Esqueceu sua senha?</small>
+          <span style="margin-left: auto">
+            <mat-spinner *ngIf="isLoading" diameter="27"></mat-spinner>
+            <span *ngIf="!isLoading">
+              <button
+                *ngIf="!loginFormGroup.invalid"
                 mat-raised-button
                 class="btn__Login"
                 (click)="btnLoginCLick()"
               >
                 Login
               </button>
-              <button *ngIf="loginFormGroup.invalid"
+              <button
+                *ngIf="loginFormGroup.invalid"
                 mat-raised-button
                 class="btn__Login"
                 disabled=""
@@ -31,7 +35,8 @@
               </button>
             </span>
           </span>
-        </form>
+        </span>
+      </form>
       <div class="--btnLogin"></div>
     </mat-card-content>
   </mat-card>
