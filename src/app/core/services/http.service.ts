@@ -19,7 +19,7 @@ export class HttpService<T> {
     return this.httpSvc.get<T[]>(this.baseUrl+path);
   }
   GetById(Id: number,path:string): Observable<T> {
-    path += Id.toString();
+    path += "/"+Id.toString();
     return this.httpSvc.get<T>(this.baseUrl+path);
   }
   Filter(objFilter: T,path:string): Observable<T[]> {

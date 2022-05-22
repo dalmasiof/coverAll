@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Cliente } from 'src/app/core/model/Cliente';
 import { ClienteService } from 'src/app/shared/Services/Cliente/cliente.service';
+import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
 
 @Component({
   selector: 'app-client-list',
@@ -16,7 +18,7 @@ export class ClientListComponent implements OnInit {
   clientList:Cliente[]=[]
 
 
-  constructor(private clienteSvc:ClienteService) { }
+  constructor(private clienteSvc:ClienteService, private router:Router, private locaStorageSvc:LocalStorageService) { }
 
   ngOnInit(): void {
     this.getClieteLIst()
@@ -30,6 +32,13 @@ export class ClientListComponent implements OnInit {
   carregarLista(x: Cliente[]) {
     this.clientList = x;
     this.dataSource = new MatTableDataSource<Cliente>(this.clientList);
+  }
+
+  btnInfoClick(Id:number){
+    let cliente = this.clienteSvc.GetById(Id).subscribe((x)=>{
+      this.locaStorageSvc.setValue('cliente',x);
+      this.router.navigateByUrl('/cliente')
+    })
   }
 
 

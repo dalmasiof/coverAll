@@ -42,7 +42,7 @@
             <th mat-header-cell *matHeaderCellDef> Ações </th>
             <td mat-cell *matCellDef="let element"> 
               <span>
-                <button matTooltip="Informações" mat-icon-button class="btnInfo" routerLink="/cliente/">
+                <button matTooltip="Informações" mat-icon-button class="btnInfo" (click)="btnInfoClick(element.id)" >
                   <mat-icon>info</mat-icon>
                 </button>
                 <button matTooltip="Editar" mat-icon-button class="btnEdit">
