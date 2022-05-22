@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from 'src/app/core/model/Cliente';
 import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
+import { utilsBr } from 'js-brasil';
 
 @Component({
   selector: 'app-cliente-info',
@@ -11,12 +13,12 @@ import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-
 export class ClienteInfoComponent implements OnInit {
   cliente!: Cliente;
   clienteFormGroup: FormGroup;
-  Nome:string="dsssda"
+  MASKS = utilsBr.MASKS;
   constructor(
     private localStorageSvc: LocalStorageService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private datePipe:DatePipe
   ) {
-    debugger;
     let clienteMemo:Cliente = this.localStorageSvc.getValue('cliente');
     this.cliente = clienteMemo;
     
@@ -26,7 +28,7 @@ export class ClienteInfoComponent implements OnInit {
       cep: [clienteMemo.cep],
       cpf: [clienteMemo.cpf],
       cidade: [clienteMemo.cidade],
-      dataNascimento: [clienteMemo.dataNascimento],
+      dataNascimento: [this.datePipe.transform(clienteMemo.dataNascimento,'yyyy-MM-dd')],
       endereco: [clienteMemo.endereco],
       genero: [clienteMemo.genero],
       nome: [clienteMemo.nome],
@@ -38,20 +40,6 @@ export class ClienteInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // console.log(this.cliente);
-    // // this.clienteFormGroup = this.fb.group({
-    //   Id: [this.cliente.Id],
-    //   CEP: [this.cliente.CEP],
-    //   CPF: [this.cliente.CPF],
-    //   Cidade: [this.cliente.Cidade],
-    //   DataNascimento: [this.cliente.DataNascimento],
-    //   Endereco: [this.cliente.Endereco],
-    //   Genero: [this.cliente.Genero],
-    //   Nome: [this.cliente.Nome],
-    //   Sobrenome: [this.cliente.Sobrenome],
-    //   Telefone: [this.cliente.Telefone],
-    //   UF: [this.cliente.UF],
-    //   email: [this.cliente.email],
-    // });
+
   }
 }

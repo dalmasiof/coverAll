@@ -21,7 +21,6 @@ export class ClienteCadComponent implements OnInit {
   MASKS = utilsBr.MASKS;
 
   senha = new FormControl('',[Validators.required])
-
   confirmaSenha = new FormControl('',
   [Validators.required
   ,CustomValidators.equalTo(this.senha)])

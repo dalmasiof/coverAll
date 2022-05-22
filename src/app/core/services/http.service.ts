@@ -32,6 +32,7 @@ export class HttpService<T> {
     return this.httpSvc.put<T>(this.baseUrl+path,toUpdate);
   }
   Delete(Id: number,path:string): Observable<boolean> {
+    path += "/"+Id.toString();
     return this.httpSvc.delete<boolean>(this.baseUrl+path);
   }
   Auth(toCreate: Login,path:string): Observable<Cliente> {

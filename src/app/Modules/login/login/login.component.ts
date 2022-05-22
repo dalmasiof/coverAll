@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       (x) => {
         debugger
         if(this.localStorageSvc.setValue('cliente', x)){
-          this.router.navigateByUrl('cliente');
+          this.router.navigateByUrl('cliente/lista');
         }
         else{
           this.toastr.error("Erro ao gravar usuário, procure o suporte","Erro desconhecido")

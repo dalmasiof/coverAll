@@ -1,24 +1,29 @@
-<div style="border: 1px solid black;">
+<div>
+  <!-- <div class="clienteInfo--buttons">
+    <app-botoes-info></app-botoes-info>
+  </div> -->
   <div class="clienteInfo--container">
     <img src="assets/avatar.png" style="width: 200px; height: 200px" />
   </div>
   <div class="clienteInfo--container">
     <h2>{{ cliente.nome }} {{ cliente.sobrenome }}</h2>
   </div>
-  
-  <div class="clienteInfo--buttons">
-    <button mat-raised-button>Meus Dados</button>
-    <button mat-raised-button>Meus Pedidos</button>
-  </div>
-  
+
   <form [formGroup]="clienteFormGroup">
     <div class="clienteInfo--container">
       <mat-form-field>
-        <input matInput formControlName="nome" placeholder="Nome" name="nome" />
+        <input
+          matInput
+          readonly
+          formControlName="nome"
+          placeholder="Nome"
+          name="nome"
+        />
       </mat-form-field>
       <mat-form-field>
         <input
           matInput
+          readonly
           formControlName="email"
           placeholder="Email"
           name="email"
@@ -27,32 +32,60 @@
     </div>
     <div class="clienteInfo--container">
       <mat-form-field>
-        <input formControlName="sobrenome" matInput placeholder="Sobrenome" />
+        <input
+          formControlName="sobrenome"
+          matInput
+          readonly
+          placeholder="Sobrenome"
+        />
       </mat-form-field>
       <mat-form-field>
-        <input formControlName="senha" matInput placeholder="Senha" />
-      </mat-form-field>
-    </div>
-    <div class="clienteInfo--container">
-      <mat-form-field>
-        <input formControlName="cpf" matInput placeholder="CPF" />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput formControlName="endereco" placeholder="Endereço" />
+        <input
+          formControlName="genero"
+          matInput
+          readonly
+          placeholder="Gênero"
+        />
       </mat-form-field>
     </div>
     <div class="clienteInfo--container">
       <mat-form-field>
         <input
+          [textMask]="{ mask: MASKS.cpf.textMask }"
+          formControlName="cpf"
+          matInput
+          readonly
+          placeholder="CPF"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          formControlName="endereco"
+          placeholder="Endereço"
+        />
+      </mat-form-field>
+    </div>
+    <div class="clienteInfo--container">
+      <mat-form-field>
+        <input
+          type="date"
+          readonly
           matInput
           formControlName="dataNascimento"
           placeholder="Data Nascimento"
         />
       </mat-form-field>
       <mat-form-field>
-        <input matInput formControlName="cep" placeholder="CEP" />
+        <input
+          matInput
+          [textMask]="{ mask: MASKS.cep.textMask }"
+          formControlName="cep"
+          readonly
+          placeholder="CEP"
+        />
       </mat-form-field>
     </div>
   </form>
 </div>
-
