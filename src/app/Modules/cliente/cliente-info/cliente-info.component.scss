@@ -1,0 +1,17 @@
+.clienteInfo--container{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 20%;
+    padding-right: 20%;
+    mat-form-field{
+        width: 40%;
+    }
+}
+
+.clienteInfo--buttons{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 20%;
+    padding-right: 20%;
+    margin: 2% 0% 2% 0%;
+}

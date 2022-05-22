@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
 
     this.LoginSvc.Auth(loginObj).subscribe(
       (x) => {
+        debugger
         if(this.localStorageSvc.setValue('cliente', x)){
           this.router.navigateByUrl('cliente');
         }

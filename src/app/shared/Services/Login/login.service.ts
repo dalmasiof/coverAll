@@ -35,7 +35,6 @@ export class LoginService implements IBaseService<Login> {
   }
 
   Auth(objLogin: Login):Observable<Cliente> {
-    debugger
     this.url = Login_Url.BASE+Login_Url.AUTH;
     return this.httpSvc.Auth(objLogin,this.url);
   }

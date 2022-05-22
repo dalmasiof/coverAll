@@ -5,7 +5,7 @@ export class LocalStorageService {
   constructor() {}
 
   getValue(valor: string):any {
-    let objValue = Object.assign({}, localStorage.getItem(valor));
+    let objValue = JSON.parse(localStorage.getItem(valor)!);
     return objValue;
   }
 

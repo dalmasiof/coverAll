@@ -1,14 +1,14 @@
 export interface Cliente {
-  Id: number;
-  Nome: string;
-  Sobrenome: string;
-  Genero: string;
+  id: number;
+  nome: string;
+  sobrenome: string;
+  genero: string;
   email: string;
-  DataNascimento: string;
-  Endereco: string;
-  Cidade: string;
-  UF: string;
-  CEP: string;
-  CPF: string;
-  Telefone: string;
+  dataNascimento: string;
+  endereco: string;
+  cidade: string;
+  uf: string;
+  cep: string;
+  cpf: string;
+  telefone: string;
 }
