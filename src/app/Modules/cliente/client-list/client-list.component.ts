@@ -51,12 +51,12 @@ export class ClientListComponent implements OnInit {
   }
 
   btnRemoveClick(Id:number){
-    debugger
+    
     this.clienteSvc.GetById(Id).subscribe((x)=>{
       this.locaStorageSvc.setValue('cliente',x);
       this.MatDialog.open(ClienteRemoveComponent).
       afterClosed().subscribe((y)=>{
-        debugger
+        
         let cliente = this.locaStorageSvc.getValue('cliente');
 
         if(cliente.nome == 'removed'){

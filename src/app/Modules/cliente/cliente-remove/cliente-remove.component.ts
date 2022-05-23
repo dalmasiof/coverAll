@@ -17,7 +17,7 @@ export class ClienteRemoveComponent implements OnInit {
   }
 
   btnRemoveEmmit(val:string){
-    debugger
+    
     let clienteMemo = this.localStorageSvc.getValue('cliente')
     let Id = clienteMemo.id;
 

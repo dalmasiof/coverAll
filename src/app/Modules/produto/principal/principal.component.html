@@ -1,0 +1,26 @@
+<div class="container--principal">
+  <mat-card>
+    <mat-card-content>
+      <div class="--logo">
+        <img src="assets/logoProt2.jpg" />
+      </div>
+      <div class="__InputPesquisa">
+        <mat-form-field>
+          <input matInput #input placeholder="Digite a roupa que proura..." />
+
+          <button *ngIf="input.value" mat-icon-button matSuffix (click)="onBtnPesquisaClick(input.value)">
+            <mat-icon matSuffix>search</mat-icon>
+          </button>
+          
+
+          <button *ngIf="!input.value" mat-icon-button matSuffix disabled>
+            <mat-icon matSuffix>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="__InputPesquisa">
+        <a href="#" routerLink="lista">Ver todas as roupas</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
