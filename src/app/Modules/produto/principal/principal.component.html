@@ -5,7 +5,7 @@
         <img src="assets/logoProt2.jpg" />
       </div>
       <div class="__InputPesquisa">
-        <mat-form-field>
+        <mat-form-field class="__pesquisa">
           <input matInput #input placeholder="Digite a roupa que proura..." />
 
           <button *ngIf="input.value" mat-icon-button matSuffix (click)="onBtnPesquisaClick(input.value)">

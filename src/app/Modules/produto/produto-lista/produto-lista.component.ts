@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
 
 @Component({
   selector: 'app-produto-lista',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoListaComponent implements OnInit {
 
-  constructor() { }
+  valorPesquisa:string = ""
+  constructor(private localStorageSvc:LocalStorageService) {
+    if(this.localStorageSvc.getValue('campoPesquisa')) 
+      this.valorPesquisa = this.localStorageSvc.getValue('campoPesquisa')
+  }
 
   ngOnInit(): void {
   }

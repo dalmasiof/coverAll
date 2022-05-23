@@ -20,10 +20,10 @@ export class ClienteCadComponent implements OnInit {
   formCad!: FormGroup;
   MASKS = utilsBr.MASKS;
 
-  senha = new FormControl('',[Validators.required])
-  confirmaSenha = new FormControl('',
-  [Validators.required
-  ,CustomValidators.equalTo(this.senha)])
+  // senha = new FormControl('',[Validators.required])
+  // confirmaSenha = new FormControl('',
+  // [Validators.required
+  // ,CustomValidators.equalTo(this.senha)])
 
   constructor(private fb:FormBuilder,private clienteSvc:ClienteService ,private routerSvc:Router,
     private toastSvc:ToastrService) {
@@ -32,8 +32,8 @@ export class ClienteCadComponent implements OnInit {
       sobrenome:['',Validators.required],
       email:['',Validators.required],
       genero:['',Validators.required],
-      senha:this.senha,
-      confirmaSenha:this.confirmaSenha,
+      // senha:this.senha,
+      // confirmaSenha:this.confirmaSenha,
       cpf:['',Validators.required],
       dataNascimento:['',Validators.required],
       telefone:['',Validators.required],
