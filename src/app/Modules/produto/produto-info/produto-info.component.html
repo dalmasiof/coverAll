@@ -1,0 +1,86 @@
+<div class="__principalContainer">
+  <div class="__imgContainer">
+    <img src="assets/{{ produto.urlImg }}" />
+  </div>
+  <div class="__infoContainer">
+    <div class="__titulo">
+      <h1>{{ produto.descricao }}</h1>
+    </div>
+    <div class="__descricao">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Descrição"
+          [value]="produto.observacao"
+          readonly
+          placeholder="Descrição da roupa"
+        />
+      </mat-form-field>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div style="margin-top: 1%;">
+      <span class="__labelProduto">Selecione o tamanho:</span>
+    </div>
+    <div class="__tamanho">
+      <mat-radio-group class="__radioGroup">
+        <mat-radio-button value="PP">PP</mat-radio-button>
+        <mat-radio-button value="P">P</mat-radio-button>
+        <mat-radio-button value="M">M</mat-radio-button>
+        <mat-radio-button value="G">G</mat-radio-button>
+        <mat-radio-button value="GG">GG</mat-radio-button>
+        <mat-radio-button value="XGG">XGG</mat-radio-button>
+        <mat-radio-button value="Customizado">Customizado</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="__tamanhoCustomizado">
+      <div class="__tamanhos">
+        <!-- <span> Tamanho customizado </span>
+        <br /> -->
+        <mat-form-field class="__margin">
+          <input matInput placeholder="Altura" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Largura" readonly />
+        </mat-form-field>
+        <mat-form-field class="__margin">
+          <input matInput placeholder="Cintura" readonly />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Braços" readonly />
+        </mat-form-field>
+      </div>
+      <div class="__CEP">
+        <h2>Endereço de entrega: </h2>
+        <mat-form-field>
+          <input matInput placeholder="CEP" readonly />
+        </mat-form-field>
+        <button mat-raised-button>Calcular CEP</button>
+      </div>
+      <div class="__endereco">
+        <mat-form-field >
+          <input matInput placeholder="Endereço" readonly />
+        </mat-form-field>
+        <mat-form-field >
+          <input matInput placeholder="Numero" readonly />
+        </mat-form-field>
+
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="__fim">
+      <div class="__total">
+        <span> Valor do produto: R$ {{produto.preco}} </span>
+      </div>
+      <div class="__total">
+        <span> Total: R$ 50 </span>
+      </div>
+      <div class="__btnCOmprar">
+        <button class="__btnQuadradoAdd --btnCOmprar" mat-raised-button>
+          <mat-icon> shopping_cart </mat-icon> Comprar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

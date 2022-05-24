@@ -1,25 +1,27 @@
 <div class="toolBar">
   <mat-toolbar class="mat-elevation-z2">
     <mat-form-field class="__pesquisa">
-      <input [value]=valorPesquisa matInput #input placeholder="Digite a roupa que proura..." />
-
-      <button *ngIf="input.value" mat-icon-button matSuffix>
-        <mat-icon matSuffix>search</mat-icon>
-      </button>
-
+      <input
+        [value]="valorPesquisa"
+        matInput
+        #input
+        placeholder="Digite a roupa que proura..."
+        (change)="onInputChange(input.value)"
+      />
       <button *ngIf="!input.value" mat-icon-button matSuffix disabled>
         <mat-icon matSuffix>search</mat-icon>
       </button>
     </mat-form-field>
     <mat-form-field class="__genero">
-      <mat-select name="genero" placeholder="Gênero">
+      <mat-select #select (valueChange)="onGeneroSelectCHange(select.value)"   name="genero" placeholder="Gênero">
+        <mat-option value="0">Todos</mat-option>
         <mat-option value="M">Masculino</mat-option>
         <mat-option value="F">Feminino</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="__genero">
-      <mat-select name="order" value="0" placeholder="Ordenar por">
+      <mat-select name="order" #selectOrder (valueChange)="onOrderChange(selectOrder.value)" value="0" placeholder="Ordenar por">
         <mat-option value="0">Relevância</mat-option>
         <mat-option value="1">Preço Maior</mat-option>
         <mat-option value="2">Preço Menor</mat-option>
@@ -27,30 +29,26 @@
         <mat-option value="4">Z - A</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <button (click)="onBtnPesquisaClick()" mat-icon-button class="btnInfo">
+      <mat-icon>search</mat-icon>
+    </button>
   </mat-toolbar>
 </div>
 <div class="__title">Principais Resultados</div>
 <div class="__containerPrincipais">
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
+  <mat-card matRipple *ngFor="let item of filteredList" class="__item mat-elevation-z2" (click)="onCardClick(item)">
+    
+      <img src="assets/{{ item.urlImg }}" />
+    <div class="__title--prod">
+      {{ item.descricao }}
+    </div>
+    <div class="__subTitle">
+      <span>
+        R$ {{ item.preco }}
+      </span>
+    </div>
+    
+  </mat-card>
 </div>
-<hr>
-<div class="__title">Últimos Lançamentos</div>
-<div class="__containerPrincipais">
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-  <mat-card class="__item mat-elevation-z2"> </mat-card>
-</div>
-
-
+<hr />

@@ -5,6 +5,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { LoginService } from './Services/Login/login.service';
 import { LocalStorageService } from './Services/LocalStorage/local-storage.service';
 import { ClienteService } from './Services/Cliente/cliente.service';
+import { ProdutoModule } from '../Modules/produto/produto.module';
 
 
 @NgModule({
@@ -12,6 +13,6 @@ import { ClienteService } from './Services/Cliente/cliente.service';
   imports: [
     CommonModule,
     SharedRoutingModule
-  ],providers:[LoginService,ClienteService,LocalStorageService]
+  ],providers:[LoginService,ClienteService,LocalStorageService,ProdutoModule]
 })
 export class SharedModule { }
