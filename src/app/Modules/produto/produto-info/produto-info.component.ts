@@ -46,15 +46,15 @@ export class ProdutoInfoComponent implements OnInit {
     this.formPedido = this.fb.group({
       idCliente: [cliente.id, Validators.required],
       total: [this.total, Validators.required],
-      desconto: ['', Validators.required],
-      frete: ['', Validators.required],
-      totalAPagar: ['', Validators.required],
+      desconto: [''],
+      frete: ['', ],
+      totalAPagar: [''],
       statusPedido: ['Em Aprovacao', Validators.required],
       statusPagamento: ['Aguardando Pagamento', Validators.required],
       statusEntrega: ['Em espera', Validators.required],
-      tamanho: ['', Validators.required],
-      enderecoEntrega: ['', Validators.required],
-      numero: ['', Validators.required],
+      tamanho: ["",],
+      enderecoEntrega: ['', ],
+      numero: ['',Validators.required],
       customizado: [''],
     });
   }
@@ -62,9 +62,9 @@ export class ProdutoInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   onBtnComprarCLick() {
+    debugger
     let objPedido = Object.assign({}, this.formPedido.value) as Pedido;
     if (this.customizado) {
-      debugger
       let customValores = this.formPedido.controls['customizado'] as FormGroup;
 
       let altura = customValores.controls['altura'].value;
