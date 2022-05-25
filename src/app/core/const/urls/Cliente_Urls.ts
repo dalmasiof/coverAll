@@ -1,4 +1,4 @@
 export class Cliente_Url{
-    public static BASE = "/cliente"
+    public static BASE = "/Cliente"
 
 }

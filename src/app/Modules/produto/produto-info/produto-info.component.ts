@@ -6,11 +6,13 @@ import { validate_currency } from 'js-brasil/src/validate';
 import { NgBrDirectives } from 'ng-brazil';
 import { ToastrService } from 'ngx-toastr';
 import { Cliente } from 'src/app/core/model/Cliente';
+import { Pedido } from 'src/app/core/model/Pedido';
 import { Produto } from 'src/app/core/model/Produto';
 import { BuscaCepService } from 'src/app/shared/Services/buscaCep/busca-cep.service';
+import { FormataDadosAPIService } from 'src/app/shared/Services/formataDadosAPI/formata-dados-api.service';
 import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
+import { PedidoService } from 'src/app/shared/Services/Pedido/pedido.service';
 import { ProdutoService } from 'src/app/shared/Services/Produto/produto.service';
-
 
 @Component({
   selector: 'app-produto-info',
@@ -31,11 +33,12 @@ export class ProdutoInfoComponent implements OnInit {
 
   constructor(
     private localStorageSvc: LocalStorageService,
-    private produtoSvc: ProdutoService,
     private router: Router,
     private fb: FormBuilder,
     private buscaCepSvc: BuscaCepService,
-    private toastrSvc: ToastrService
+    private toastrSvc: ToastrService,
+    private pedidSvc: PedidoService,
+    private formataDadosApiSvc: FormataDadosAPIService
   ) {
     let cliente = this.localStorageSvc.getValue('cliente') as Cliente;
     this.produto = this.localStorageSvc.getValue('produto') as Produto;
@@ -59,8 +62,37 @@ export class ProdutoInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   onBtnComprarCLick() {
-    let objPedido = Object.assign({}, this.formPedido.value);
-    console.log(objPedido);
+    let objPedido = Object.assign({}, this.formPedido.value) as Pedido;
+    if (this.customizado) {
+      debugger
+      let customValores = this.formPedido.controls['customizado'] as FormGroup;
+
+      let altura = customValores.controls['altura'].value;
+      let largura = customValores.controls['largura'].value;
+      let cintura = customValores.controls['cintura'].value;
+      let braco = customValores.controls['braco'].value;
+
+      this.tamanho = `Altura: ${altura}; Largura: ${largura}; Cintura: ${cintura}; Braço: ${braco};`;
+    }
+    objPedido.tamanho = this.tamanho;
+
+    objPedido.frete = this.formataDadosApiSvc.moedaParaAPI(
+      this.formPedido.controls['frete'].value
+    );
+    objPedido.total = this.formataDadosApiSvc.moedaParaAPI(
+      this.formPedido.controls['total'].value
+    );
+    objPedido.desconto = 0;
+    objPedido.totalAPagar = 0;
+
+    objPedido.enderecoEntrega +=
+      ', ' + this.formPedido.controls['numero'].value;
+
+      objPedido.produtos = [this.produto]
+
+    this.pedidSvc.Create(objPedido).subscribe((x) => {
+      this.toastrSvc.success('Pedido concluído', 'Sucesso');
+    });
   }
 
   onbBtnCepCLick(cep: string) {
@@ -71,9 +103,9 @@ export class ProdutoInfoComponent implements OnInit {
         this.formPedido.controls['enderecoEntrega'].setValue(
           `${x.uf}, ${x.localidade}, ${x.bairro}, ${x.logradouro}`
         );
-        
+
         let rdnNum = Math.floor(Math.random() * (5 - 0 + 1) + 1);
-          rdnNum = 3;
+        rdnNum = 3;
         this.formPedido.controls['frete'].setValue(this.arrValoresCep[rdnNum]);
         this.calcularTotal();
       },
@@ -89,7 +121,6 @@ export class ProdutoInfoComponent implements OnInit {
   }
 
   calcularTotal() {
-
     let frete = this.formPedido.controls['frete'].value;
     let precoProduto = this.produto.preco;
 
@@ -117,15 +148,16 @@ export class ProdutoInfoComponent implements OnInit {
   }
 
   stringParaNumber(valor: string): number {
-    let val = parseInt(valor.replace('.', '').replace(',', '').replace("R$ ",'')) / 100;
+    let val =
+      parseInt(valor.replace('.', '').replace(',', '').replace('R$ ', '')) /
+      100;
     return val;
   }
 
-  numberParaString(valor:number) {
-    const {CURRENCYPipe} = NgBrDirectives;
-    return new CURRENCYPipe()
-      .transform(valor, '2');
-  
+  numberParaString(valor: number) {
+    const { CURRENCYPipe } = NgBrDirectives;
+    return new CURRENCYPipe().transform(valor, '2');
+
     // let val = parseInt(valor.replace('.', '').replace(',', '')) / 100;
     // return val;
   }

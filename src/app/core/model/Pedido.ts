@@ -11,7 +11,7 @@ export interface Pedido {
   statusPagamento: string;
   statusEntrega: string;
   tamanho: string;
-
+  enderecoEntrega:string
 
   produtos: Produto[];
 }

@@ -12,7 +12,21 @@
             "^/apiDev":""
         }
 
-    }
+    },
 
+    "/apiLocal":{
+        "target":"https://localhost:5001/",
+        "secure":false,
+        "timeout":60000,
+
+        "logLevel":"debug",
+
+        "changeOrigin":true,
+
+        "pathRewrite":{
+            "^/apiLocal":""
+        }
+
+    }
     
 }
