@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { IBaseRequest } from '../interface/IBaseRequest';
 import { Cliente } from '../model/Cliente';
 import { Login } from '../model/Login';
+import { PayLoadCep } from '../model/payLoadCep';
 
 @Injectable()
 export class HttpService<T> {
@@ -37,6 +38,11 @@ export class HttpService<T> {
   }
   Auth(toCreate: Login,path:string): Observable<Cliente> {
     return this.httpSvc.post<Cliente>(this.baseUrl+path,toCreate);
+  }
+
+  GetCep(cep:string){
+    return this.httpSvc.get<PayLoadCep>(`https://viacep.com.br/ws/${cep}/json/`);
+
   }
 
 }

@@ -17,6 +17,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRippleModule } from '@angular/material/core';
 import { MatRadioModule} from '@angular/material/radio';
 import { MatDividerModule} from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { utilsBr } from 'js-brasil';
+import { TextMaskModule } from 'angular2-text-mask';
+import { CustomFormsModule } from 'ng2-validation';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgBrazil } from 'ng-brazil';
 
 
 
@@ -28,6 +34,7 @@ import { MatDividerModule} from '@angular/material/divider';
     ProdutoInfoComponent
   ],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     ProdutoRoutingModule,
     MatFormFieldModule,
@@ -39,7 +46,12 @@ import { MatDividerModule} from '@angular/material/divider';
     MatSelectModule,
     MatRippleModule,
     MatRadioModule,
-    MatDividerModule
+    MatDividerModule,
+    TextMaskModule,
+    CustomFormsModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    NgBrazil
   ],providers:[
     ProdutoService
   ]

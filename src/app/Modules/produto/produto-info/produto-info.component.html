@@ -3,84 +3,186 @@
     <img src="assets/{{ produto.urlImg }}" />
   </div>
   <div class="__infoContainer">
-    <div class="__titulo">
-      <h1>{{ produto.descricao }}</h1>
-    </div>
-    <div class="__descricao">
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Descrição"
-          [value]="produto.observacao"
-          readonly
-          placeholder="Descrição da roupa"
-        />
-      </mat-form-field>
-    </div>
-    <mat-divider></mat-divider>
-
-    <div style="margin-top: 1%;">
-      <span class="__labelProduto">Selecione o tamanho:</span>
-    </div>
-    <div class="__tamanho">
-      <mat-radio-group class="__radioGroup">
-        <mat-radio-button value="PP">PP</mat-radio-button>
-        <mat-radio-button value="P">P</mat-radio-button>
-        <mat-radio-button value="M">M</mat-radio-button>
-        <mat-radio-button value="G">G</mat-radio-button>
-        <mat-radio-button value="GG">GG</mat-radio-button>
-        <mat-radio-button value="XGG">XGG</mat-radio-button>
-        <mat-radio-button value="Customizado">Customizado</mat-radio-button>
-      </mat-radio-group>
-    </div>
-
-    <div class="__tamanhoCustomizado">
-      <div class="__tamanhos">
-        <!-- <span> Tamanho customizado </span>
-        <br /> -->
-        <mat-form-field class="__margin">
-          <input matInput placeholder="Altura"  />
-        </mat-form-field>
+    <form [formGroup]="formPedido">
+      <div class="__titulo">
+        <h1>{{ produto.descricao }}</h1>
+      </div>
+      <div class="__descricao">
         <mat-form-field>
-          <input matInput placeholder="Largura"  />
-        </mat-form-field>
-        <mat-form-field class="__margin">
-          <input matInput placeholder="Cintura"  />
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Braços"  />
+          <input
+            matInput
+            placeholder="Descrição"
+            [value]="produto.observacao"
+            readonly
+            placeholder="Descrição da roupa"
+          />
         </mat-form-field>
       </div>
+      <mat-divider></mat-divider>
+
+      <div style="margin-top: 1%">
+        <span class="__labelProduto">Selecione o tamanho:</span>
+      </div>
+      <div class="__tamanho">
+        <mat-radio-group class="__radioGroup">
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="PP"
+            >PP</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="P"
+            >P</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="M"
+            >M</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="G"
+            >G</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="GG"
+            >GG</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="XGG"
+            >XGG</mat-radio-button
+          >
+          <mat-radio-button (change)="onTamanhoChange($event.value)" value="1"
+            >Customizado</mat-radio-button
+          >
+        </mat-radio-group>
+      </div>
+
+      <div class="__tamanhoCustomizado" *ngIf="customizado">
+        <div class="__tamanhos">
+          <form formGroupName="customizado">
+            <mat-form-field class="__margin">
+              <input
+                [textMask]="{ mask: MASKS.number.textMask }"
+                formControlName="altura"
+                matInput
+                placeholder="Altura"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                [textMask]="{ mask: MASKS.number.textMask }"
+                formControlName="largura"
+                matInput
+                placeholder="Largura"
+              />
+            </mat-form-field>
+            <mat-form-field class="__margin">
+              <input
+                [textMask]="{ mask: MASKS.number.textMask }"
+                formControlName="cintura"
+                matInput
+                placeholder="Cintura"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                [textMask]="{ mask: MASKS.number.textMask }"
+                formControlName="braco"
+                matInput
+                placeholder="Braços"
+              />
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+
       <div class="__CEP">
-        <div class="__titleEndereco">Endereço de entrega: </div>
-        <mat-form-field>
-          <input matInput placeholder="CEP"  />
-        </mat-form-field>
-        <button mat-raised-button>Calcular CEP</button>
+        <div class="__titleEndereco">Endereço de entrega:</div>
+        <div class="__campoCEP">
+          <mat-form-field>
+            <input
+              name="cep"
+              [textMask]="{ mask: MASKS.cep.textMask }"
+              matInput
+              #cep
+              placeholder="CEP"
+            />
+          </mat-form-field>
+          <mat-spinner *ngIf="cepLoading" diameter="30"></mat-spinner>
+          <button
+            sty
+            *ngIf="!cepLoading"
+            type="button"
+            mat-raised-button
+            (click)="onbBtnCepCLick(cep.value)"
+          >
+            Calcular CEP
+          </button>
+          <mat-form-field id="valorCep">
+            <input
+              matInput
+              formControlName="frete"
+              placeholder="Valor do Frete"
+              [textMask]="{ mask: MASKS.currency.textMask }"
+            />
+          </mat-form-field>
+        </div>
       </div>
       <div class="__endereco">
-        <mat-form-field >
-          <input matInput placeholder="Endereço"  />
+        <mat-form-field id="logradouro">
+          <input
+            matInput
+            formControlName="enderecoEntrega"
+            placeholder="Endereço"
+          />
         </mat-form-field>
-        <mat-form-field >
-          <input matInput placeholder="Numero"  />
+        <mat-form-field id="numero">
+          <input
+            matInput
+            formControlName="numero"
+            placeholder="Numero"
+            name="numero"
+          />
         </mat-form-field>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="__fim">
+        <div class="__total">
+          <mat-form-field>
+            <input
+              matInput
+              [textMask]="{ mask: MASKS.currency.textMask }"
+              value="{{ produto.preco }}"
+              placeholder="Valor do produto"
+            />
+          </mat-form-field>
+        </div>
+        <div class="__total">
+          <mat-form-field>
+            <input
+              readonly
+              formControlName="total"
+              matInput
+              [textMask]="{ mask: MASKS.currency.textMask }"
+              [value]="total"
+              placeholder="Total"
+            />
+          </mat-form-field>
+        </div>
+        <div class="__btnCOmprar">
+          <button
+            *ngIf="formPedido.invalid"
+            disabled
+            class="--btnCOmprar"
+            type="button"
+            mat-raised-button
+          >
+            <mat-icon> shopping_cart </mat-icon> Comprar
+          </button>
 
+          <button
+            (click)="onBtnComprarCLick()"
+            *ngIf="formPedido.invalid"
+            class="__btnQuadradoAdd --btnCOmprar"
+            type="button"
+            mat-raised-button
+          >
+            <mat-icon> shopping_cart </mat-icon> Comprar
+          </button>
+        </div>
       </div>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="__fim">
-      <div class="__total">
-        <span> Valor do produto: R$ {{produto.preco}} </span>
-      </div>
-      <div class="__total">
-        <span> Total: R$ 60.00 </span>
-      </div>
-      <div class="__btnCOmprar">
-        <button class="__btnQuadradoAdd --btnCOmprar" mat-raised-button>
-          <mat-icon> shopping_cart </mat-icon> Comprar
-        </button>
-      </div>
-    </div>
+    </form>
   </div>
 </div>

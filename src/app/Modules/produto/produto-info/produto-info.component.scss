@@ -50,8 +50,17 @@
     }
 
     .__CEP{
+      #valorCep{
+        margin-left: auto;
+      }
       .__titleEndereco{
         
+      }
+
+      .__campoCEP{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center ;
       }
     }
 
@@ -64,9 +73,18 @@
     }
 
     .__endereco{
-      mat-form-field{
-        width: 50%;
+      #logradouro{
+        width: 60%;
+
       }
+      #numero{
+        margin-left: 10%;
+        width: 30%;
+
+      }
+
+
+      
     }
 
     .__fim {

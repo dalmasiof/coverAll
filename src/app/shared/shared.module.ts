@@ -6,6 +6,7 @@ import { LoginService } from './Services/Login/login.service';
 import { LocalStorageService } from './Services/LocalStorage/local-storage.service';
 import { ClienteService } from './Services/Cliente/cliente.service';
 import { ProdutoModule } from '../Modules/produto/produto.module';
+import { BuscaCepService } from './Services/buscaCep/busca-cep.service';
 
 
 @NgModule({
@@ -13,6 +14,6 @@ import { ProdutoModule } from '../Modules/produto/produto.module';
   imports: [
     CommonModule,
     SharedRoutingModule
-  ],providers:[LoginService,ClienteService,LocalStorageService,ProdutoModule]
+  ],providers:[LoginService,ClienteService,LocalStorageService,ProdutoModule,BuscaCepService]
 })
 export class SharedModule { }
