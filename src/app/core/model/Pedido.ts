@@ -1,6 +1,6 @@
 import { Produto } from './Produto';
 
-export interface Pedido {
+export interface  Pedido {
   id: number;
   idCliente: number;
   total: number;

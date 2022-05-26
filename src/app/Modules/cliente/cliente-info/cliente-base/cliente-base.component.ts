@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteBaseComponent implements OnInit {
 
+  controleComponente:string="1"
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  outPutButton(value:string){
+    this.controleComponente = value
   }
 
 }

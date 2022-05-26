@@ -1,0 +1,27 @@
+.__pedidosontainer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-bottom: 2%;
+
+  .__pedido {
+    margin-left: 10%;
+    width: 90%;
+    // margin-right: 10%;
+
+  }
+
+  .__fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .--mais {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    mat-button {
+      text-align: center;
+    }
+  }
+}

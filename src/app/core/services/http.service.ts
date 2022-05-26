@@ -6,6 +6,7 @@ import { IBaseRequest } from '../interface/IBaseRequest';
 import { Cliente } from '../model/Cliente';
 import { Login } from '../model/Login';
 import { PayLoadCep } from '../model/payLoadCep';
+import { Pedido } from '../model/Pedido';
 
 @Injectable()
 export class HttpService<T> {
@@ -42,7 +43,10 @@ export class HttpService<T> {
 
   GetCep(cep:string){
     return this.httpSvc.get<PayLoadCep>(`https://viacep.com.br/ws/${cep}/json/`);
+  }
 
+  GetPedidosByCli(IdCLiente:number,path:string){
+    return this.httpSvc.get<Pedido[]>(this.baseUrl+path+"/"+IdCLiente);
   }
 
 }

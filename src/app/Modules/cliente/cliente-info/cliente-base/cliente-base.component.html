@@ -1,4 +1,6 @@
 <div class="clienteInfo--buttons">
-    <app-botoes-info></app-botoes-info>
+    <app-botoes-info (btnCLick)="outPutButton($event)"></app-botoes-info>
 </div>
-<app-cliente-info></app-cliente-info>>
+<app-cliente-info *ngIf="controleComponente == '0'"></app-cliente-info>
+<app-cliente-pedido *ngIf="controleComponente == '1'"></app-cliente-pedido>
+

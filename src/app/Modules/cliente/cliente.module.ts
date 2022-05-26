@@ -27,6 +27,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { BotoesComponent } from './cliente-remove/botoes/botoes.component';
 import { BotoesInfoComponent } from './cliente-info/botoes-info/botoes-info.component';
 import { ClienteBaseComponent } from './cliente-info/cliente-base/cliente-base.component';
+import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
 
 
 
@@ -39,7 +40,8 @@ import { ClienteBaseComponent } from './cliente-info/cliente-base/cliente-base.c
     ClienteRemoveComponent,
     BotoesComponent,
     BotoesInfoComponent,
-    ClienteBaseComponent
+    ClienteBaseComponent,
+    ClientePedidoComponent
   ],
   imports: [
     CommonModule,

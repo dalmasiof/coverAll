@@ -30,4 +30,7 @@ export class ClienteService implements IBaseService<Cliente> {
   Delete(Id: number): Observable<boolean> {
     return this.httpSvc.Delete(Id, this.url);
   }
+  GetPedidosPorCliente(IdCLiente: number) {
+    return this.httpSvc.GetPedidosByCli(IdCLiente,this.url+Cliente_Url.PEDIDOS_BY_CLIENTE);
+  }
 }

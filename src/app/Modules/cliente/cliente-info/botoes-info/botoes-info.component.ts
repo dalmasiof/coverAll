@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-botoes-info',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./botoes-info.component.scss']
 })
 export class BotoesInfoComponent implements OnInit {
+  @Output() btnCLick: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  obBtnClick(value:string){
+    this.btnCLick.emit(value)
   }
 
 }
