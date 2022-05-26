@@ -70,10 +70,10 @@
         />
       </mat-form-field>
       
-      <button *ngIf="pedido.statusPedido != 'Pedido Cancelado'" (click)="onBtnConfirmaEntrega()" class="__btnQuadradoAdd" mat-raised-button>
+      <button *ngIf="pedido.statusPedido != 'Pedido Cancelado' && pedido.statusPedido != 'Pedido Finalizado'" (click)="onBtnConfirmaEntrega()" class="__btnQuadradoAdd" mat-raised-button>
         <mat-icon>check</mat-icon> Confirmar Entrega
       </button>
-      <button *ngIf="pedido.statusPedido != 'Pedido Finalizado'" (click)="onBtnCancelarPedido()" class="__btnQuadradoRemove" mat-raised-button>
+      <button *ngIf="pedido.statusPedido != 'Pedido Finalizado' && pedido.statusPedido != 'Pedido Cancelado'" (click)="onBtnCancelarPedido()" class="__btnQuadradoRemove" mat-raised-button>
         <mat-icon>cancel</mat-icon> Cancelar Pedido
       </button>
     </div>

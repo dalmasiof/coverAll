@@ -34,6 +34,8 @@ export class PedidoInfoComponent implements OnInit {
       this.pedido.statusEntrega = pedidoToUpdate.statusEntrega;
       this.pedido.statusPagamento = pedidoToUpdate.statusPagamento;
       this.pedido.statusPedido = pedidoToUpdate.statusPedido;
+      this.localStorageSvc.setValue('pedido',this.pedido)
+
 
     },
     (err)=>{
@@ -54,6 +56,7 @@ export class PedidoInfoComponent implements OnInit {
       this.pedido.statusEntrega = pedidoToUpdate.statusEntrega;
       this.pedido.statusPagamento = pedidoToUpdate.statusPagamento;
       this.pedido.statusPedido = pedidoToUpdate.statusPedido;
+      this.localStorageSvc.setValue('pedido',this.pedido)
 
     },
     (err)=>{
