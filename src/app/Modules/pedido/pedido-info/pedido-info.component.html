@@ -1,1 +1,81 @@
-<p>pedido-info works!</p>
+<div class="--pedidoContainer">
+  <div class="--pedidoInfo">
+    <div class="__fields">
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.produtos[0].descricao }}"
+          placeholder="Descrição Produto"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.tamanho }}"
+          placeholder="Tamanho"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.frete }}"
+          placeholder="Valor Frete"
+        /> </mat-form-field
+      ><mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.produtos[0].preco }}"
+          placeholder="Valor Produto"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.totalAPagar }}"
+          placeholder="Total"
+        />
+      </mat-form-field>
+    </div>
+    <div class="__imgProd">
+      <img src="assets/{{ pedido.produtos[0].urlImg }}" />
+    </div>
+    <div class="__entrega">
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.statusPedido }}"
+          placeholder="Status Pedido"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="{{ pedido.statusEntrega }}"
+          placeholder="Endereço de Entrega"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          readonly
+          value="A caminho"
+          placeholder="Previsão de chegada"
+        />
+      </mat-form-field>
+      
+      <button *ngIf="pedido.statusPedido != 'Pedido Cancelado'" (click)="onBtnConfirmaEntrega()" class="__btnQuadradoAdd" mat-raised-button>
+        <mat-icon>check</mat-icon> Confirmar Entrega
+      </button>
+      <button *ngIf="pedido.statusPedido != 'Pedido Finalizado'" (click)="onBtnCancelarPedido()" class="__btnQuadradoRemove" mat-raised-button>
+        <mat-icon>cancel</mat-icon> Cancelar Pedido
+      </button>
+    </div>
+  </div>
+</div>
