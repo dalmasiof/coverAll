@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
 import { ToastrService } from 'ngx-toastr';
+import { LoggedUserService } from 'src/app/core/services/loggedUser/logged-user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private LoginSvc: LoginService,
     private fb: FormBuilder,
     private localStorageSvc: LocalStorageService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private loggedUserSvc:LoggedUserService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +47,9 @@ export class LoginComponent implements OnInit {
       (x) => {
         
         if(this.localStorageSvc.setValue('cliente', x)){
-          this.router.navigateByUrl('cliente/lista');
+          debugger
+          this.loggedUserSvc.setValue(true);
+          this.router.navigateByUrl('produto');
         }
         else{
           this.toastr.error("Erro ao gravar usuário, procure o suporte","Erro desconhecido")

@@ -21,7 +21,8 @@ import { FormataDadosAPIService } from './Services/formataDadosAPI/formata-dados
     ProdutoModule,
     BuscaCepService,
     PedidoService,
-    FormataDadosAPIService
+    FormataDadosAPIService,
+    
   ],
 })
 export class SharedModule {}

@@ -1,17 +1,33 @@
-<mat-toolbar>
-  <button mat-icon-button >
+<mat-toolbar *ngIf="isLogged">
+  <button mat-icon-button>
     <mat-icon>home</mat-icon>
   </button>
-  <button mat-button style="height: 100%;" routerLink="cliente/lista" >Clientes</button>
-  <button mat-button style="height: 100%;" routerLink="produto/">Produtos</button>
+  <button mat-button style="height: 100%" routerLink="cliente/lista">
+    Clientes
+  </button>
+  <button
+    mat-button
+    style="height: 100%"
+    routerLink="produto/"
+  >
+    Produtos
+  </button>
 
-  
-    <span style="margin-left: auto;">
-        <button mat-icon-button routerLink="login" matTooltip="Login">
-          <mat-icon>login</mat-icon>
-        </button>
-        <button mat-icon-button matTooltip="Perfil" routerLink="cliente/">
-          <mat-icon>account_circle</mat-icon>
-        </button>
-    </span>
-  </mat-toolbar>
+  <span style="margin-left: auto">
+    <button
+      mat-icon-button
+      matTooltip="Perfil"
+      routerLink="cliente/"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      (click)="logOut()"
+      routerLink="login"
+      matTooltip="Login"
+    >
+      <mat-icon>login</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>

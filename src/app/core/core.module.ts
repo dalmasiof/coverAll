@@ -10,9 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatTooltipModule} from '@angular/material/tooltip';
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoggedUserService } from './services/loggedUser/logged-user.service';
 
 @NgModule({
   declarations: [NavBarComponent, FooterComponent],
@@ -23,9 +22,10 @@ import { MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   exports: [NavBarComponent, FooterComponent],
-  providers: [HttpService],
+
+  providers: [HttpService, LoggedUserService],
 })
 export class CoreModule {}
