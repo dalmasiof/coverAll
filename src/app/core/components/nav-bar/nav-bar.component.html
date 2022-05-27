@@ -1,24 +1,18 @@
 <mat-toolbar *ngIf="isLogged">
-  <button mat-icon-button>
+  <button routerLink="produto/" mat-icon-button matTooltip="Home">
     <mat-icon>home</mat-icon>
   </button>
-  <button mat-button style="height: 100%" routerLink="cliente/lista">
-    Clientes
-  </button>
   <button
+    *ngIf="cliente!.id == 1"
     mat-button
     style="height: 100%"
-    routerLink="produto/"
+    routerLink="cliente/lista"
   >
-    Produtos
+    Clientes
   </button>
 
   <span style="margin-left: auto">
-    <button
-      mat-icon-button
-      matTooltip="Perfil"
-      routerLink="cliente/"
-    >
+    <button mat-icon-button matTooltip="Perfil" routerLink="cliente/">
       <mat-icon>account_circle</mat-icon>
     </button>
     <button
