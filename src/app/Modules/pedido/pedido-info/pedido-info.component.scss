@@ -1,8 +1,9 @@
 .--pedidoContainer {
   display: flex;
+  justify-content: space-around;
   border: 1px solid black;
   height: 300px;
-  width: 100%;
+  // width: 100%;
 
   .--pedidoInfo {
     display: flex;
