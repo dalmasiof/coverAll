@@ -6,6 +6,8 @@ import { utilsBr } from 'js-brasil';
 import { CustomValidators } from 'ng2-validation';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-storage.service';
+import { LoggedUserService } from 'src/app/core/services/loggedUser/logged-user.service';
 
 
 @Component({
@@ -20,20 +22,21 @@ export class ClienteCadComponent implements OnInit {
   formCad!: FormGroup;
   MASKS = utilsBr.MASKS;
 
-  // senha = new FormControl('',[Validators.required])
-  // confirmaSenha = new FormControl('',
-  // [Validators.required
-  // ,CustomValidators.equalTo(this.senha)])
+  senha = new FormControl('',[Validators.required])
+  confirmaSenha = new FormControl('',
+  [Validators.required
+  ,CustomValidators.equalTo(this.senha)])
 
   constructor(private fb:FormBuilder,private clienteSvc:ClienteService ,private routerSvc:Router,
-    private toastSvc:ToastrService) {
+    private toastSvc:ToastrService, private localStorageSvc:LocalStorageService, private loggedUserSvc:LoggedUserService
+    ) {
     this.formCad = fb.group({
       nome:['',Validators.required],
       sobrenome:['',Validators.required],
       email:['',Validators.required],
       genero:['',Validators.required],
-      // senha:this.senha,
-      // confirmaSenha:this.confirmaSenha,
+      senha:this.senha,
+      confirmaSenha:this.confirmaSenha,
       cpf:['',Validators.required],
       dataNascimento:['',Validators.required],
       telefone:['',Validators.required],
@@ -64,7 +67,15 @@ export class ClienteCadComponent implements OnInit {
     // console.log(objCliente);
     this.clienteSvc.Create(objCliente).subscribe((x)=>{
       this.toastSvc.success("CLiente gravado com sucesso!","Sucesso")
-      this.routerSvc.navigateByUrl('/cliente/lista')
+      if(this.localStorageSvc.getValue('cliente')){
+        this.routerSvc.navigateByUrl('/cliente/lista')
+      }
+      else{
+        this.localStorageSvc.setValue('cliente',x)
+        this.loggedUserSvc.setValue(true)
+        this.routerSvc.navigateByUrl('/produto')
+
+      }
     })
 
   }

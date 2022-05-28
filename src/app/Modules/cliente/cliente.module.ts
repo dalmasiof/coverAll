@@ -8,6 +8,10 @@ import { ClientListComponent } from './client-list/client-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ClieteUpdateComponent } from './cliete-update/cliete-update.component';
 import { ClienteRemoveComponent } from './cliente-remove/cliente-remove.component';
+import { BotoesComponent } from './cliente-remove/botoes/botoes.component';
+import { BotoesInfoComponent } from './cliente-info/botoes-info/botoes-info.component';
+import { ClienteBaseComponent } from './cliente-info/cliente-base/cliente-base.component';
+import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,10 +28,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TextMaskModule } from 'angular2-text-mask';
 import { CustomFormsModule } from 'ng2-validation';
 import { MatNativeDateModule } from '@angular/material/core';
-import { BotoesComponent } from './cliente-remove/botoes/botoes.component';
-import { BotoesInfoComponent } from './cliente-info/botoes-info/botoes-info.component';
-import { ClienteBaseComponent } from './cliente-info/cliente-base/cliente-base.component';
-import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.component';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 
 
@@ -62,7 +64,8 @@ import { ClientePedidoComponent } from './cliente-pedido/cliente-pedido.componen
     CustomFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
   providers:[DatePipe]
 })

@@ -16,7 +16,6 @@ export class NavBarComponent implements OnInit {
     ) {
       
       this.loggedUser.getValue().subscribe((x)=>{
-        debugger;
         if(this.localStorageSvc.getValue('cliente'))
         this.cliente = this.localStorageSvc.getValue('cliente');
         this.isLogged = x})

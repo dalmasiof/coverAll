@@ -1,3 +1,7 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="pedidosCLiente.length == 0 && !isLoading" class="__pedidosontainer mat-elevation-z2">
+  Nao há pedidos realizados pelo cliente.
+</div>
 <div class="__pedidosontainer mat-elevation-z2" *ngFor="let ped of pedidosCLiente">
   <div class="__pedido">
     <div class="__fields" >

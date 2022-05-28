@@ -11,7 +11,8 @@ import { LocalStorageService } from 'src/app/shared/Services/LocalStorage/local-
   styleUrls: ['./cliente-pedido.component.scss'],
 })
 export class ClientePedidoComponent implements OnInit {
-  pedidosCLiente!: Pedido[];
+  isLoading:boolean = true
+  pedidosCLiente: Pedido[] = [];
   cliente!: Cliente;
 
   constructor(
@@ -27,6 +28,7 @@ export class ClientePedidoComponent implements OnInit {
   getPedidos() {
     this.clienteSvc.GetPedidosPorCliente(this.cliente.id).subscribe((x) => {
       this.pedidosCLiente = x;
+      this.isLoading = false
     });
   }
 

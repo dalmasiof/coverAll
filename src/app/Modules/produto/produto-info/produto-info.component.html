@@ -174,13 +174,14 @@
 
           <button
             (click)="onBtnComprarCLick()"
-            *ngIf="!formPedido.invalid"
+            *ngIf="!formPedido.invalid && !btnCOmprarLoading"
             class="__btnQuadradoAdd --btnCOmprar"
             type="button"
             mat-raised-button
           >
             <mat-icon> shopping_cart </mat-icon> Comprar
           </button>
+          <mat-spinner class="--btnCOmprar" *ngIf="btnCOmprarLoading" diameter="40"></mat-spinner>
         </div>
       </div>
     </form>

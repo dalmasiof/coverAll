@@ -11,4 +11,5 @@ export interface Cliente {
   cep: string;
   cpf: string;
   telefone: string;
+  senha:string
 }

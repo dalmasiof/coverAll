@@ -25,6 +25,7 @@ export class ProdutoInfoComponent implements OnInit {
   customizado: boolean = false;
   tamanho!: string;
   cepLoading: boolean = false;
+  btnCOmprarLoading: boolean = false;
 
   formPedido!: FormGroup;
   MASKS = utilsBr.MASKS;
@@ -47,14 +48,14 @@ export class ProdutoInfoComponent implements OnInit {
       idCliente: [cliente.id, Validators.required],
       total: [this.total, Validators.required],
       desconto: [''],
-      frete: ['', ],
+      frete: [''],
       totalAPagar: [''],
       statusPedido: ['Em Aprovacao', Validators.required],
       statusPagamento: ['Aguardando Pagamento', Validators.required],
       statusEntrega: ['Em espera', Validators.required],
-      tamanho: ["",],
-      enderecoEntrega: ['', ],
-      numero: ['',Validators.required],
+      tamanho: [''],
+      enderecoEntrega: [''],
+      numero: ['', Validators.required],
       customizado: [''],
     });
   }
@@ -62,7 +63,7 @@ export class ProdutoInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   onBtnComprarCLick() {
-    debugger
+    this.btnCOmprarLoading = true;
     let objPedido = Object.assign({}, this.formPedido.value) as Pedido;
     if (this.customizado) {
       let customValores = this.formPedido.controls['customizado'] as FormGroup;
@@ -88,11 +89,19 @@ export class ProdutoInfoComponent implements OnInit {
     objPedido.enderecoEntrega +=
       ', ' + this.formPedido.controls['numero'].value;
 
-      objPedido.produtos = [this.produto]
+    objPedido.produtos = [this.produto];
 
-    this.pedidSvc.Create(objPedido).subscribe((x) => {
-      this.toastrSvc.success('Pedido concluído', 'Sucesso');
-    });
+    this.pedidSvc.Create(objPedido).subscribe(
+      (x) => {
+        this.toastrSvc.success('Pedido concluído', 'Sucesso');
+        this.router.navigateByUrl('cliente');
+      },
+      (e) => {
+        this.toastrSvc.error('Erro ao comprar o produto', 'Erro');
+        this.btnCOmprarLoading = false;
+      },
+      () => (this.btnCOmprarLoading = true)
+    );
   }
 
   onbBtnCepCLick(cep: string) {
@@ -105,7 +114,6 @@ export class ProdutoInfoComponent implements OnInit {
         );
 
         let rdnNum = Math.floor(Math.random() * (5 - 0 + 1) + 1);
-        rdnNum = 3;
         this.formPedido.controls['frete'].setValue(this.arrValoresCep[rdnNum]);
         this.calcularTotal();
       },
