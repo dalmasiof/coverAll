@@ -19,14 +19,50 @@
       display: flex;
       flex-direction: column;
       img {
-          width: 100%;
-          height: 100%;
-        }
+        width: 100%;
+        height: 100%;
+      }
     }
-    
+
     .__entrega {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+@media only screen and (max-device-width: 400px) {
+  .--pedidoContainer {
+    display: flex;
+    // justify-content: center;
+    border: none;
+    // height: 300px !important;
+    // width: 100%;
+
+    .--pedidoInfo {
+      display: block;
+      justify-content: space-around;
+      // height: 100%;
+
+      .__fields {
+        display: block;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+
+      .__imgProd {
+        display: block;
+        // flex-direction: column;
+        img {
+          // display: none;
+          width: 100%;
+          height: 350px;
+        }
+      }
+
+      .__entrega {
         display: flex;
         flex-direction: column;
+      }
     }
   }
 }
