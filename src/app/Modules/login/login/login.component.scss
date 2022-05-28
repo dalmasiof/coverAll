@@ -1,41 +1,78 @@
-.login--container{
+.login--container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+
+  .--card {
+    width: 30%;
+    height: 100%;
+    margin: 2%;
+  }
+  .--logo {
+    padding-top: 20%;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+  }
+
+  .--inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    padding: 0% 20% 0% 20%;
+    // border: 1px solid black;
+  }
+  .--verificacao {
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+  }
 
-    .--card{
-        width: 30%;
-        height: 100%;
-        margin: 2%;
-    }
-    .--logo{
-        padding-top: 20%;
+  .--btnLogin {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .spanSubtitles {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.btn__Login {
+  color: white;
+  background-color: blueviolet;
+}
+
+@media only screen and (max-device-width: 400px) {
+    .login--container {
         display: flex;
-        margin: auto;
-        justify-content: space-around;
-    }
-    
-    .--inputs{
+        justify-content: center;
+        // justify-content: space-around;
+        flex-direction: row;
+        .--card {
+          width: 100%;
+        //   height: 100%;
+        }
+    }      
+
+    // 
+
+
+      .--inputs {
         display: flex;
         flex-direction: column;
         margin-top: 20%;
-        padding: 0% 20% 0% 20%;
+        // padding: 0% 20% 0% 20%;
         // border: 1px solid black;
-    }
-    .--verificacao{
+      }
+
+      .--btnLogin {
         display: flex;
-        justify-content: space-around;  
-    }
+        justify-content: flex-end;
+        margin-left: 10000px !important;
+      }
     
-    .--btnLogin{
-        display: flex;
-        justify-content: flex-end;        
-        margin-left: auto;
-    }
-
-
-}
-
-.btn__Login{
-    color: white; background-color: blueviolet;
+  /* .menu { width:100%; } */
 }

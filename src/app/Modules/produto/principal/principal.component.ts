@@ -18,7 +18,6 @@ export class PrincipalComponent implements OnInit {
   onBtnPesquisaClick(value:string){
     this.localStorageSvc.setValue('campoPesquisa',value);
     this.router.navigateByUrl('produto/lista')
-    value)
   }
 
 }
