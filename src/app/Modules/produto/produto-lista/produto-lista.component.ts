@@ -42,7 +42,6 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   filtrarListaPorPesquisa() {
-    debugger;
     if (this.valorPesquisa == '') {
       this.filteredList = Object.assign([], this.prodList);
     }
@@ -171,7 +170,6 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   filtrarLista() {
-    debugger;
     this.filtrarListaPorPesquisa();
     this.filtarGenero();
     this.ordernarPor();

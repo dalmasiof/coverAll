@@ -62,7 +62,7 @@ export class ClieteUpdateComponent implements OnInit {
     replace(' ','').
     replace('-','')
 
-    // console.log(objCliente);
+    // objCliente);
     this.clienteSvc.Update(objCliente).subscribe((x)=>{
       this.toastSvc.success("Cliente alterado com sucesso!","Sucesso")
       this.routerSvc.navigateByUrl('/cliente/lista')

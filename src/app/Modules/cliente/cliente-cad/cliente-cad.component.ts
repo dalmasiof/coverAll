@@ -64,7 +64,7 @@ export class ClienteCadComponent implements OnInit {
     replace(' ','').
     replace('-','')
 
-    // console.log(objCliente);
+    // objCliente);
     this.clienteSvc.Create(objCliente).subscribe((x)=>{
       this.toastSvc.success("CLiente gravado com sucesso!","Sucesso")
       if(this.localStorageSvc.getValue('cliente')){

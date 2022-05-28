@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       (x) => {
         
         if(this.localStorageSvc.setValue('cliente', x)){
-          debugger
+          
           this.loggedUserSvc.setValue(true);
           this.router.navigateByUrl('produto');
         }
