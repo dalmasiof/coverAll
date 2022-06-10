@@ -9,11 +9,11 @@
           <input formControlName="usuario" matInput placeholder="E-mail" />
         </mat-form-field>
         <mat-form-field>
-          <input type="password" formControlName="senha" matInput placeholder="Senha" />
+          <input type="password" formControlName="senha" matInput placeholder="Password" />
         </mat-form-field>
 
         <span class="spanSubtitles" >
-          <a href="#" routerLink="/cliente/cadastro" style="position: fixed;">Cadastre-se agora!</a>
+          <a href="#" routerLink="/cliente/cadastro" style="position: fixed;">Register now!</a>
           <span style="margin-left: auto">
             <mat-spinner *ngIf="isLoading" diameter="27"></mat-spinner>
             <span *ngIf="!isLoading">
