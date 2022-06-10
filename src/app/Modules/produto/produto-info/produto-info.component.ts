@@ -30,7 +30,7 @@ export class ProdutoInfoComponent implements OnInit {
   formPedido!: FormGroup;
   MASKS = utilsBr.MASKS;
 
-  arrValoresCep: string[] = ['10,0', '15,0', '5,0', '25,50', '0', '12,25'];
+  arrValoresCep: string[] = ['10,0', '15,0', '5,0', '25,50', '0,0', '12,25'];
 
   constructor(
     private localStorageSvc: LocalStorageService,
@@ -50,9 +50,9 @@ export class ProdutoInfoComponent implements OnInit {
       desconto: [''],
       frete: [''],
       totalAPagar: [''],
-      statusPedido: ['Em Aprovacao', Validators.required],
-      statusPagamento: ['Aguardando Pagamento', Validators.required],
-      statusEntrega: ['Em espera', Validators.required],
+      statusPedido: ['On approval', Validators.required],
+      statusPagamento: ['Awaiting payment', Validators.required],
+      statusEntrega: ['On hold', Validators.required],
       tamanho: [''],
       enderecoEntrega: [''],
       numero: ['', Validators.required],
@@ -73,13 +73,17 @@ export class ProdutoInfoComponent implements OnInit {
       let cintura = customValores.controls['cintura'].value;
       let braco = customValores.controls['braco'].value;
 
-      this.tamanho = `Altura: ${altura}; Largura: ${largura}; Cintura: ${cintura}; Braço: ${braco};`;
+      this.tamanho = `Height: ${altura}; Width: ${largura}; Waist: ${cintura}; Arm: ${braco};`;
     }
     objPedido.tamanho = this.tamanho;
-
-    objPedido.frete = this.formataDadosApiSvc.moedaParaAPI(
-      this.formPedido.controls['frete'].value
-    );
+    if(objPedido.frete == undefined){
+      objPedido.frete = 0
+    }
+    else{
+      objPedido.frete = this.formataDadosApiSvc.moedaParaAPI(
+        this.formPedido.controls['frete'].value
+      );
+    }
     objPedido.total = this.formataDadosApiSvc.moedaParaAPI(
       this.formPedido.controls['total'].value
     );
@@ -156,6 +160,9 @@ export class ProdutoInfoComponent implements OnInit {
   }
 
   stringParaNumber(valor: string): number {
+    if(valor == undefined)
+      return 0.0;
+
     let val =
       parseInt(valor.replace('.', '').replace(',', '').replace('R$ ', '')) /
       100;
