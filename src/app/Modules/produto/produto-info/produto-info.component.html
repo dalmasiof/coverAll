@@ -14,14 +14,13 @@
             placeholder="Descrição"
             [value]="produto.observacao"
             readonly
-            placeholder="Descrição da roupa"
           />
         </mat-form-field>
       </div>
       <mat-divider></mat-divider>
 
       <div style="margin-top: 1%">
-        <span class="__labelProduto">Selecione o tamanho:</span>
+        <span class="__labelProduto">Select size:</span>
       </div>
       <div class="__tamanho">
         <mat-radio-group class="__radioGroup">
@@ -44,7 +43,7 @@
             >XGG</mat-radio-button
           >
           <mat-radio-button (change)="onTamanhoChange($event.value)" value="1"
-            >Customizado</mat-radio-button
+            >Customized</mat-radio-button
           >
         </mat-radio-group>
       </div>
@@ -57,7 +56,7 @@
                 [textMask]="{ mask: MASKS.number.textMask }"
                 formControlName="altura"
                 matInput
-                placeholder="Altura"
+                placeholder="Height"
               />
             </mat-form-field>
             <mat-form-field>
@@ -65,7 +64,7 @@
                 [textMask]="{ mask: MASKS.number.textMask }"
                 formControlName="largura"
                 matInput
-                placeholder="Largura"
+                placeholder="Width"
               />
             </mat-form-field>
             <mat-form-field class="__margin">
@@ -73,7 +72,7 @@
                 [textMask]="{ mask: MASKS.number.textMask }"
                 formControlName="cintura"
                 matInput
-                placeholder="Cintura"
+                placeholder="Waist"
               />
             </mat-form-field>
             <mat-form-field>
@@ -81,7 +80,7 @@
                 [textMask]="{ mask: MASKS.number.textMask }"
                 formControlName="braco"
                 matInput
-                placeholder="Braços"
+                placeholder="Arms"
               />
             </mat-form-field>
           </form>
@@ -89,7 +88,7 @@
       </div>
 
       <div class="__CEP">
-        <div class="__titleEndereco">Endereço de entrega:</div>
+        <div class="__titleEndereco">Delivery address:</div>
         <div class="__campoCEP">
           <mat-form-field>
             <input
@@ -114,7 +113,7 @@
             <input
               matInput
               formControlName="frete"
-              placeholder="Valor do Frete"
+              placeholder="Cost of freight"
               [textMask]="{ mask: MASKS.currency.textMask }"
             />
           </mat-form-field>
@@ -125,14 +124,14 @@
           <input
             matInput
             formControlName="enderecoEntrega"
-            placeholder="Endereço"
+            placeholder="Address"
           />
         </mat-form-field>
         <mat-form-field id="numero">
           <input
             matInput
             formControlName="numero"
-            placeholder="Numero"
+            placeholder="Number"
             name="numero"
           />
         </mat-form-field>
@@ -145,7 +144,7 @@
               matInput
               [textMask]="{ mask: MASKS.currency.textMask }"
               value="{{ produto.preco }}"
-              placeholder="Valor do produto"
+              placeholder="Value"
             />
           </mat-form-field>
         </div>
@@ -169,7 +168,7 @@
             type="button"
             mat-raised-button
           >
-            <mat-icon> shopping_cart </mat-icon> Comprar
+            <mat-icon> shopping_cart </mat-icon> Buy
           </button>
 
           <button
@@ -179,7 +178,7 @@
             type="button"
             mat-raised-button
           >
-            <mat-icon> shopping_cart </mat-icon> Comprar
+            <mat-icon> shopping_cart </mat-icon> Buy
           </button>
           <mat-spinner class="--btnCOmprar" *ngIf="btnCOmprarLoading" diameter="40"></mat-spinner>
         </div>

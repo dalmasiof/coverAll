@@ -6,7 +6,7 @@
       </div>
       <div class="__InputPesquisa">
         <mat-form-field class="__pesquisa">
-          <input matInput #input placeholder="Digite a roupa que proura..." />
+          <input matInput #input placeholder="Enter the clothes you are looking for..." />
 
           <button *ngIf="input.value" mat-icon-button matSuffix (click)="onBtnPesquisaClick(input.value)">
             <mat-icon matSuffix>search</mat-icon>
@@ -19,7 +19,7 @@
         </mat-form-field>
       </div>
       <div class="__InputPesquisa">
-        <a href="#" routerLink="lista">Ver todas as roupas</a>
+        <a href="#" routerLink="lista">See all</a>
       </div>
     </mat-card-content>
   </mat-card>

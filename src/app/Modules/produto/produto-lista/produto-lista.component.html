@@ -5,7 +5,7 @@
         [value]="valorPesquisa"
         matInput
         #input
-        placeholder="Digite a roupa que proura..."
+        placeholder="Enter the clothes you are looking for..."
         (change)="onInputChange(input.value)"
       />
       <button *ngIf="!input.value" mat-icon-button matSuffix disabled>
@@ -13,18 +13,18 @@
       </button>
     </mat-form-field>
     <mat-form-field class="__genero">
-      <mat-select #select (valueChange)="onGeneroSelectCHange(select.value)"   name="genero" placeholder="Gênero">
-        <mat-option value="0">Todos</mat-option>
-        <mat-option value="M">Masculino</mat-option>
-        <mat-option value="F">Feminino</mat-option>
+      <mat-select #select (valueChange)="onGeneroSelectCHange(select.value)"   name="genero" placeholder="Gender">
+        <mat-option value="0">All</mat-option>
+        <mat-option value="M">Male</mat-option>
+        <mat-option value="F">Female</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="__genero">
       <mat-select name="order" #selectOrder (valueChange)="onOrderChange(selectOrder.value)" value="0" placeholder="Ordenar por">
-        <mat-option value="0">Relevância</mat-option>
-        <mat-option value="1">Preço Maior</mat-option>
-        <mat-option value="2">Preço Menor</mat-option>
+        <mat-option value="0">Relevance</mat-option>
+        <mat-option value="1">Higher price</mat-option>
+        <mat-option value="2">Lower price</mat-option>
         <mat-option value="3">A - Z</mat-option>
         <mat-option value="4">Z - A</mat-option>
       </mat-select>
@@ -35,7 +35,7 @@
     </button>
   </mat-toolbar>
 </div>
-<div class="__title">Principais Resultados</div>
+<div class="__title">Main results</div>
 <div class="__containerPrincipais">
   <mat-card matRipple *ngFor="let item of filteredList" class="__item mat-elevation-z2" (click)="onCardClick(item)">
     
@@ -45,7 +45,7 @@
     </div>
     <div class="__subTitle">
       <span>
-        R$ {{ item.preco }}
+        $ {{ item.preco }}
       </span>
     </div>
     

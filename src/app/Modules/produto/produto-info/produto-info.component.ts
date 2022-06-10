@@ -93,11 +93,11 @@ export class ProdutoInfoComponent implements OnInit {
 
     this.pedidSvc.Create(objPedido).subscribe(
       (x) => {
-        this.toastrSvc.success('Pedido concluído', 'Sucesso');
+        this.toastrSvc.success('Order completed', 'Success');
         this.router.navigateByUrl('cliente');
       },
       (e) => {
-        this.toastrSvc.error('Erro ao comprar o produto', 'Erro');
+        this.toastrSvc.error('Error when purchasing the product', 'Error');
         this.btnCOmprarLoading = false;
       },
       () => (this.btnCOmprarLoading = true)
@@ -119,7 +119,7 @@ export class ProdutoInfoComponent implements OnInit {
       },
       (e) => {
         this.toastrSvc.error(
-          'Erro ao buscar CEP, ' + e,
+          'Error searching zip code, ' + e,
           'Status: ' + e.message
         );
         this.cepLoading = false;
