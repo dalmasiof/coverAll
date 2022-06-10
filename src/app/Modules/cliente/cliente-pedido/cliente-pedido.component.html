@@ -1,29 +1,29 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
 <div *ngIf="pedidosCLiente.length == 0 && !isLoading" class="__pedidosontainer mat-elevation-z2">
-  Nao há pedidos realizados pelo cliente.
+  There are no orders.
 </div>
 <div class="__pedidosontainer mat-elevation-z2" *ngFor="let ped of pedidosCLiente">
   <div class="__pedido">
     <div class="__fields" >
       <mat-form-field>
-        <input matInput readonly [value]=ped.id placeholder="Número do Pedido" />
+        <input matInput readonly [value]=ped.id placeholder="Order Id" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput readonly [value]=ped.produtos[0].descricao placeholder="Título" />
+        <input matInput readonly [value]=ped.produtos[0].descricao placeholder="Title" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput readonly [value]=ped.totalAPagar placeholder="Preço" />
+        <input matInput readonly [value]=ped.totalAPagar placeholder="Price" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput readonly [value]=ped.statusEntrega placeholder="Previsão Entrega" />
+        <input matInput readonly [value]=ped.statusEntrega placeholder="Delivery Forecast" />
       </mat-form-field>
     </div>
   </div>
   <div class="__pedido --mais">
-      <button (click)="onBtnMaisClick(ped)" mat-icon-button matTooltip="Mais Detalhes">
+      <button (click)="onBtnMaisClick(ped)" mat-icon-button matTooltip="Details">
           <mat-icon>more_vert </mat-icon>
       </button>
   </div>

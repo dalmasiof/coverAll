@@ -1,18 +1,18 @@
 <div class="container--title">
     <span class="container__title">
       <mat-icon>add_circle_outline</mat-icon>
-      <span class="__title">Cadastrar Cliente</span>
+      <span class="__title">Edit Client</span>
     </span>
-    <h4>Atualize um novo cliente.</h4>
+    <h4>Update a client.</h4>
   </div>
   <div class="container--title__subtitle">
-    <h2>Preencha os dados.</h2>
+    <h2>Fill the formulary.</h2>
   </div>
   <div class="container--form">
     <form [formGroup]="formCad">
       <div class="container--form--2elementos">
         <mat-form-field>
-          <input formControlName="nome" matInput placeholder="Nome" name="nome" />
+          <input formControlName="nome" matInput placeholder="Name" name="nome" />
         </mat-form-field>
         <span style="width: 50%"></span>
         <mat-form-field>
@@ -30,7 +30,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Sobrenome"
+            placeholder="Last Name"
             formControlName="sobrenome"
             name="sobrenome"
           />
@@ -38,9 +38,9 @@
         <span style="width: 50%"></span>
   
         <mat-form-field>
-          <mat-select formControlName="genero" name="genero" placeholder="Gênero">
-            <mat-option value="M">Masculino</mat-option>
-            <mat-option value="F">Feminino</mat-option>
+          <mat-select formControlName="genero" name="genero" placeholder="Gender">
+            <mat-option value="M">Male</mat-option>
+            <mat-option value="F">Female</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -60,7 +60,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Data de Nascimento"
+            placeholder="Birth Date"
             formControlName="dataNascimento"
             name="dataNasc"
             type="date"
@@ -71,7 +71,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Telefone"
+            placeholder="Phone"
             formControlName="telefone"
             name="telefone"
             [textMask]="{ mask: MASKS.telefone.textMask }"
@@ -94,7 +94,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Cidade"
+            placeholder="City"
             formControlName="cidade"
             name="cidade"
           />
@@ -114,7 +114,7 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Endereço"
+            placeholder="Adress"
             formControlName="endereco"
             name="endereco"
           />
@@ -127,13 +127,12 @@
           mat-raised-button
           style="background-color: #f39c12; color: white"
         >
-          <mat-icon>add</mat-icon> Gravar
+          <mat-icon>add</mat-icon> Edit
         </button>
   
         <button *ngIf="formCad.invalid" disabled mat-raised-button>
-          <mat-icon>add</mat-icon> Gravar
+          <mat-icon>add</mat-icon> Edit
         </button>
       </div>
     </form>
   </div>
-  
