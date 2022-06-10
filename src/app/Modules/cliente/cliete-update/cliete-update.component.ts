@@ -64,7 +64,7 @@ export class ClieteUpdateComponent implements OnInit {
 
     // objCliente);
     this.clienteSvc.Update(objCliente).subscribe((x)=>{
-      this.toastSvc.success("Cliente alterado com sucesso!","Sucesso")
+      this.toastSvc.success("Client successfully changed!","Success")
       this.routerSvc.navigateByUrl('/cliente/lista')
     })
 

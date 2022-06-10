@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('produto');
         }
         else{
-          this.toastr.error("Erro ao gravar usuário, procure o suporte","Erro desconhecido")
+          this.toastr.error("Error recording user, contact support","Unknown error")
         }
         
       },

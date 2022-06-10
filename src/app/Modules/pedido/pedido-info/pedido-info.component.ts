@@ -22,15 +22,15 @@ export class PedidoInfoComponent implements OnInit {
   ngOnInit(): void {}
 
   onBtnConfirmaEntrega() {
-    this.pedido.statusEntrega = 'Entregue';
+    this.pedido.statusEntrega = 'Delivered';
     let pedidoToUpdate = Object.assign({}, this.pedido);
     pedidoToUpdate.produtos = [];
-    pedidoToUpdate.statusEntrega = 'Pedido Entregue';
-    pedidoToUpdate.statusPagamento = 'Pedido Pago';
-    pedidoToUpdate.statusPedido = "Pedido Finalizado";
+    pedidoToUpdate.statusEntrega = 'Order Delivered';
+    pedidoToUpdate.statusPagamento = 'Paid Order';
+    pedidoToUpdate.statusPedido = "Order Completed";
 
     this.pedidoSvc.Update(pedidoToUpdate).subscribe((x) => {
-      this.toastSvc.success('Pedido alterado com sucesso');
+      this.toastSvc.success('Order changed successfully');
       this.pedido.statusEntrega = pedidoToUpdate.statusEntrega;
       this.pedido.statusPagamento = pedidoToUpdate.statusPagamento;
       this.pedido.statusPedido = pedidoToUpdate.statusPedido;
@@ -39,20 +39,20 @@ export class PedidoInfoComponent implements OnInit {
 
     },
     (err)=>{
-      this.toastSvc.error("Erro ao atualizar o pedido, status"+err.status,"Erro")
+      this.toastSvc.error("Error updating order, status"+err.status,"Error")
     }); 
   }
 
   onBtnCancelarPedido(){
-    this.pedido.statusEntrega = 'Pedido Cancelado';
+    this.pedido.statusEntrega = 'Canceled order';
     let pedidoToUpdate = Object.assign({}, this.pedido);
     pedidoToUpdate.produtos = [];
-    pedidoToUpdate.statusEntrega = 'Pedido Cancelado';
-    pedidoToUpdate.statusPagamento = 'Pedido Cancelado';
-    pedidoToUpdate.statusPedido = "Pedido Cancelado";
+    pedidoToUpdate.statusEntrega = 'Canceled order';
+    pedidoToUpdate.statusPagamento = 'Canceled order';
+    pedidoToUpdate.statusPedido = "Canceled order";
 
     this.pedidoSvc.Update(pedidoToUpdate).subscribe((x) => {
-      this.toastSvc.success('Pedido alterado com sucesso');
+      this.toastSvc.success('Order changed successfully');
       this.pedido.statusEntrega = pedidoToUpdate.statusEntrega;
       this.pedido.statusPagamento = pedidoToUpdate.statusPagamento;
       this.pedido.statusPedido = pedidoToUpdate.statusPedido;
@@ -60,7 +60,7 @@ export class PedidoInfoComponent implements OnInit {
 
     },
     (err)=>{
-      this.toastSvc.error("Erro ao atualizar o pedido, status"+err.status,"Erro")
+      this.toastSvc.error("Error updating order, status"+err.status,"Error")
     }); 
   }
 }

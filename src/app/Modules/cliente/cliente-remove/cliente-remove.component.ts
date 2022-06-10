@@ -23,7 +23,7 @@ export class ClienteRemoveComponent implements OnInit {
 
     if(val == '1'){
       this.clienteSvc.Delete(Id).subscribe((x)=>{
-        this.toastSvc.success('Cliente removido com sucesso','Sucesso')
+        this.toastSvc.success('Client successfully removed','Success')
         clienteMemo.nome ='removed'
         this.localStorageSvc.setValue('cliente',clienteMemo)
         this.dialogRef.closeAll()

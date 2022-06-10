@@ -6,7 +6,7 @@
           matInput
           readonly
           value="{{ pedido.produtos[0].descricao }}"
-          placeholder="Descrição Produto"
+          placeholder="Product Description"
         />
       </mat-form-field>
       <mat-form-field>
@@ -14,7 +14,7 @@
           matInput
           readonly
           value="{{ pedido.tamanho }}"
-          placeholder="Tamanho"
+          placeholder="Size"
         />
       </mat-form-field>
       <mat-form-field>
@@ -22,14 +22,14 @@
           matInput
           readonly
           value="{{ pedido.frete }}"
-          placeholder="Valor Frete"
+          placeholder="Shipping Value"
         /> </mat-form-field
       ><mat-form-field>
         <input
           matInput
           readonly
           value="{{ pedido.produtos[0].preco }}"
-          placeholder="Valor Produto"
+          placeholder="Product Value"
         />
       </mat-form-field>
       <mat-form-field>
@@ -50,7 +50,7 @@
           matInput
           readonly
           value="{{ pedido.statusPedido }}"
-          placeholder="Status Pedido"
+          placeholder="Status Order"
         />
       </mat-form-field>
       <mat-form-field>
@@ -58,24 +58,25 @@
           matInput
           readonly
           value="{{ pedido.statusEntrega }}"
-          placeholder="Endereço de Entrega"
+          placeholder="Delivery address"
         />
       </mat-form-field>
       <mat-form-field>
         <input
           matInput
           readonly
-          value="A caminho"
-          placeholder="Previsão de chegada"
+          value="On the way"
+          placeholder="arrival forecast"
         />
       </mat-form-field>
       
-      <button *ngIf="pedido.statusPedido != 'Pedido Cancelado' && pedido.statusPedido != 'Pedido Finalizado'" (click)="onBtnConfirmaEntrega()" class="__btnQuadradoAdd" mat-raised-button>
+      <button *ngIf="pedido.statusPedido != 'Canceled order' && pedido.statusPedido != 'Order Completed'" (click)="onBtnConfirmaEntrega()" class="__btnQuadradoAdd" mat-raised-button>
         <mat-icon>check</mat-icon> Confirmar Entrega
       </button>
-      <button *ngIf="pedido.statusPedido != 'Pedido Finalizado' && pedido.statusPedido != 'Pedido Cancelado'" (click)="onBtnCancelarPedido()" class="__btnQuadradoRemove" mat-raised-button>
+      <button *ngIf="pedido.statusPedido != 'Order Completed' && pedido.statusPedido != 'Canceled order'" (click)="onBtnCancelarPedido()" class="__btnQuadradoRemove" mat-raised-button>
         <mat-icon>cancel</mat-icon> Cancelar Pedido
       </button>
+
     </div>
   </div>
 </div>

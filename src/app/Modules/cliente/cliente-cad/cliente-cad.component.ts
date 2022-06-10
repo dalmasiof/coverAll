@@ -66,7 +66,7 @@ export class ClienteCadComponent implements OnInit {
 
     // objCliente);
     this.clienteSvc.Create(objCliente).subscribe((x)=>{
-      this.toastSvc.success("CLiente gravado com sucesso!","Sucesso")
+      this.toastSvc.success("Client successfully recorded!","Success")
       if(this.localStorageSvc.getValue('cliente')){
         this.routerSvc.navigateByUrl('/cliente/lista')
       }
